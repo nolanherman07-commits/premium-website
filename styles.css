@@ -226,7 +226,7 @@ h3 { font-size: 1.7rem; }
 
 /* Footer */
 .footer { background: #0d0d0d; color: rgba(255,255,255,.7); padding: 4rem 0 2rem; font-size: .9rem; }
-.f-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
+.f-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 2rem; }
 .footer h4 { color: #fff; font: 1.3rem var(--head); letter-spacing: .08em; margin: 0 0 .8rem; }
 .footer a { text-decoration: none; display: block; margin-bottom: .45rem; } .footer a:hover { color: var(--accent); }
 .footer .flogo { height: 46px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1rem; }

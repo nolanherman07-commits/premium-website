@@ -58,7 +58,7 @@ def ic(k): return f'<svg viewBox="0 0 24 24" aria-hidden="true">{I[k]}</svg>'
 EXT = 'target="_blank" rel="noopener"'
 def ph(label, cls="ph"): return f'<div class="{cls}"><span>{E(label)}</span></div>'
 
-NAV = [("index.html","Home"),("about.html","About"),("buy.html","Buy"),("sell.html","Sell"),("listings.html","Listings"),("areas.html","Areas")]
+NAV = [("index.html","Home"),("about.html","About"),("buy.html","Buy"),("sell.html","Sell")]
 def header(active):
     links = "".join(f'<a href="{h}" class="{"active" if h==active else ""}">{t}</a>' for h,t in NAV)
     return f'''<div class="topbar"><div class="wrap">
@@ -76,9 +76,8 @@ FOOTER = f'''<footer class="footer"><div class="wrap">
     <div><img class="flogo" src="images/logo.png" alt="Nestlewood Realty" />
       <p>{A["name"]}, {A["title"]}<br />{A["brokerage"]}<br />{A["address"]}</p>
       <div class="fsoc"><a href="{A["instagram"]}" {EXT} aria-label="Instagram">{ic("instagram")}</a><a href="{A["facebook"]}" {EXT} aria-label="Facebook">{ic("facebook")}</a><a href="{A["zillow"]}" {EXT} aria-label="Zillow">{ic("zillow")}</a><a href="{A["homes"]}" {EXT} aria-label="Homes.com">{ic("house")}</a></div></div>
-    <div><h4>Explore</h4><a href="buy.html">Buy a Home</a><a href="sell.html">Sell Your Home</a><a href="listings.html">Listings</a><a href="about.html">About Nolan</a></div>
-    <div><h4>Areas</h4><a href="hickory.html">Hickory</a><a href="newton.html">Newton</a><a href="granite-falls.html">Granite Falls</a><a href="areas.html">All Areas</a></div>
-    <div><h4>Contact</h4><a href="tel:{A["tel"]}">{A["phone"]}</a><a href="mailto:{A["email"]}">{A["email"]}</a><a href="contact.html">Book a Call</a><a href="{MAP}" {EXT}>Get Directions</a></div>
+    <div><h4>Explore</h4><a href="buy.html">Buy a Home</a><a href="sell.html">Sell Your Home</a><a href="about.html">About Nolan</a><a href="contact.html">Contact</a></div>
+    <div><h4>Contact</h4><a href="tel:{A["tel"]}">{A["phone"]}</a><a href="mailto:{A["email"]}">{A["email"]}</a><a href="contact.html">Send a Message</a><a href="{MAP}" {EXT}>Get Directions</a></div>
   </div>
   <div class="f-bottom"><span>© 2026 {A["brokerage"]}. All rights reserved.</span><span>Equal Housing Opportunity · {A["title"]}</span></div>
 </div></footer>'''
@@ -151,7 +150,7 @@ BOOKING = f'''<section class="section" id="book"><div class="wrap booking">
 
 CTA = f'''<section class="cta"><div class="wrap"><p class="eyebrow">Ready when you are</p><h2>Let's go home.</h2>
   <p>Buying, selling, or just curious? I'm a call or text away.</p>
-  <div class="cta-actions"><a class="btn" href="tel:{A["tel"]}">{ic("phone")} Call {A["first"]}</a><a class="btn btn-ghost" href="sms:{A["tel"]}">{ic("text")} Text {A["first"]}</a><a class="btn btn-ghost" href="contact.html">{ic("cal")} Book a Call</a></div>
+  <div class="cta-actions"><a class="btn" href="tel:{A["tel"]}">{ic("phone")} Call {A["first"]}</a><a class="btn btn-ghost" href="sms:{A["tel"]}">{ic("text")} Text {A["first"]}</a><a class="btn btn-ghost" href="contact.html">{ic("email")} Message Me</a></div>
 </div></section>'''
 
 STATS = '''<section class="stats"><div class="wrap stats-grid">
@@ -167,7 +166,7 @@ page("index.html", "Nolan Herman, REALTOR® | Nestlewood Realty | Hickory, NC", 
 <section class="hero">
   <div class="slides"><div class="slide on" style="background-image:url('images/cover.jpg')"></div><div class="slide ph-slide"></div><div class="slide ph-slide"></div></div>
   <div class="wrap"><div class="hero-copy">
-    <p class="eyebrow">Hickory · Newton · Granite Falls · Charlotte</p>
+    <p class="eyebrow">Hickory · Charlotte · and surrounding areas</p>
     <h1>Let's go <em>home.</em></h1>
     <p>I'm Nolan Herman, a REALTOR® with Nestlewood Realty. I make buying and selling simple, fast, and stress-free.</p>
     <div class="hero-actions"><a class="btn" href="contact.html">Contact Me</a><a class="btn btn-ghost" href="#value">What's My Home Worth?</a></div>
@@ -184,21 +183,11 @@ page("index.html", "Nolan Herman, REALTOR® | Nestlewood Realty | Hickory, NC", 
     <a class="btn btn-dark" href="about.html">My Story</a></div>
 </div></section>
 <section class="section soft"><div class="wrap">
-  <div class="head-row"><div><p class="eyebrow">Featured Listings</p><h2>Homes I'm proud to represent</h2></div><a class="link" href="listings.html">See all listings →</a></div>
+  <div class="head-row"><div><p class="eyebrow">Featured Listings</p><h2>Homes I'm proud to represent</h2></div><a class="link" href="{A["zillow"]}" {EXT}>More on Zillow →</a></div>
   <div class="cards3">{"".join(listing_card(*l) for l in FEATURED)}</div>
 </div></section>
 {REVIEW_SLIDER}
-<section class="section"><div class="wrap">
-  <div class="head-row"><div><p class="eyebrow">Explore the Area</p><h2>Find your place to call home</h2></div><a class="link" href="areas.html">All areas →</a></div>
-  <div class="cards3">{"".join(hood_card(k) for k in HOODS)}</div>
-</div></section>
-<section class="section soft"><div class="wrap">
-  <div class="head-row"><div><p class="eyebrow">Recently Sold</p><h2>Results that speak for themselves</h2></div><a class="link" href="listings.html#sold">See more →</a></div>
-  <div class="cards3">{"".join(listing_card(*l, sold=True) for l in SOLD)}</div>
-</div></section>
 {VALUATION}
-{GUIDE}
-{BOOKING}
 {CTA}''')
 
 # ---------------- ABOUT ----------------
@@ -246,7 +235,6 @@ page("buy.html", "Buy a Home | Nolan Herman, REALTOR®", "buy.html", f'''
     <div class="result"><small>Estimated monthly payment</small><div class="pay" id="c-pay">$0</div>
       <div class="bd"><div><span>Principal & interest</span><b id="c-pi">$0</b></div><div><span>Taxes & insurance</span><b id="c-ti">$0</b></div><div><span>Loan amount</span><b id="c-loan">$0</b></div></div></div>
   </div></div></section>
-{GUIDE}
 {CTA}''')
 
 # ---------------- SELL ----------------
@@ -262,58 +250,13 @@ page("sell.html", "Sell Your Home | Nolan Herman, REALTOR®", "sell.html", f'''
     <div class="step rev"><h3>Market Everywhere</h3><p>The MLS, Zillow, Homes.com, plus targeted Instagram and Facebook ads.</p></div>
     <div class="step rev"><h3>Negotiate & Close</h3><p>I screen offers, negotiate hard, and handle every detail to closing.</p></div>
   </div></div></section>
-<section class="section soft" id="value-form"><div class="wrap split">
-  <div class="rev"><p class="eyebrow">Free Home Value Report</p><h2>What's your home worth?</h2><p class="lead">Tell me a little about your home and I'll send a personalized value report, usually within 24 hours.</p>
-    <ul class="checks"><li>Based on real recent sales near you</li><li>Prepared by me, not a computer</li><li>No pressure and no obligation</li></ul></div>
-  <form class="form rev lead-form" data-subject="Home value report request">
-    <label>Property address<input name="address" required /></label>
-    <div class="row"><label>Beds<input name="beds" /></label><label>Baths<input name="baths" /></label></div>
-    <div class="row"><label>Name<input name="name" required /></label><label>Phone<input name="phone" type="tel" /></label></div>
-    <label>Email<input name="email" type="email" required /></label>
-    <label>Timeline<select name="timeline"><option>Just curious</option><option>Within 3 months</option><option>3–6 months</option><option>6+ months</option></select></label>
-    <button class="btn" type="submit">Get My Free Report</button>
-  </form></div></section>
-<section class="section"><div class="wrap"><div class="head-row"><div><p class="eyebrow">Recently Sold</p><h2>Recent results</h2></div></div>
-  <div class="cards3">{"".join(listing_card(*l, sold=True) for l in SOLD)}</div></div></section>
+{VALUATION}
 {REVIEW_SLIDER}
-{CTA}''')
-
-# ---------------- LISTINGS ----------------
-page("listings.html", "Listings | Nolan Herman, REALTOR®", "listings.html", f'''
-<section class="page-hero" style="--bg:url('images/cover.jpg')"><div class="wrap"><div class="crumbs">Home / Listings</div><h1>Listings</h1><p>My featured homes and recent sales across the Catawba Valley and beyond.</p></div></section>
-<section class="section"><div class="wrap"><div class="head-row"><div><p class="eyebrow">Featured</p><h2>Featured listings</h2></div><a class="link" href="{A["zillow"]}" {EXT}>All my listings on Zillow →</a></div>
-  <div class="cards3">{"".join(listing_card(*l) for l in FEATURED)}</div></div></section>
-<section class="section soft" id="sold"><div class="wrap"><div class="head-row"><div><p class="eyebrow">Sold</p><h2>Recently sold</h2></div></div>
-  <div class="cards3">{"".join(listing_card(*l, sold=True) for l in SOLD)}</div></div></section>
-{VALUATION}
-{CTA}''')
-
-# ---------------- AREAS + EACH AREA ----------------
-page("areas.html", "Areas I Serve | Nolan Herman, REALTOR®", "areas.html", f'''
-<section class="page-hero" style="--bg:url('images/cover.jpg')"><div class="wrap"><div class="crumbs">Home / Areas</div><h1>Areas I Serve</h1><p>Local guides to help you find the right town, the right neighborhood, and the right home.</p></div></section>
-<section class="section"><div class="wrap"><div class="cards3">{"".join(hood_card(k) for k in HOODS)}</div>
-  <p class="center fine" style="margin-top:2rem">Also serving Charlotte, Conover, Lenoir, Hudson, Sherrills Ford and the surrounding area.</p></div></section>
-{CTA}''')
-for key, h in HOODS.items():
-    others = [k for k in HOODS if k != key]
-    page(f"{key}.html", f"Living in {h['name']}, NC | Nolan Herman, REALTOR®", "areas.html", f'''
-<section class="page-hero ph-hero"><div class="wrap"><div class="crumbs">Home / Areas / {h["name"]}</div><h1>Living in {h["name"]}, NC</h1><p>{h["tag"]}. PLACEHOLDER: a photo of {h["name"]} goes behind this title.</p></div></section>
-<section class="section"><div class="wrap split">
-  <div class="rev"><p class="eyebrow">{h["county"]}</p><h2>Why people love {h["name"]}</h2><p class="lead">{h["intro"]}</p>
-    <ul class="checks">{"".join(f"<li>{E(x)}</li>" for x in h["love"])}</ul>
-    <a class="btn" href="contact.html">Find a Home in {h["name"]}</a></div>
-  <div class="rev">{ph(h["name"] + " photo").replace('class="ph"', 'class="ph" style="aspect-ratio:4/5;border-radius:14px"')}</div>
-</div>
-<div class="wrap"><div class="facts">{"".join(f'<div class="fact"><strong>{E(a)}</strong><span>{E(b)}</span></div>' for a,b in h["facts"])}</div>
-  <p class="fine">*Market numbers are placeholders. Update with current local data.</p></div></section>
-<section class="section soft"><div class="wrap"><div class="head-row"><div><p class="eyebrow">Explore More</p><h2>Nearby areas</h2></div></div>
-  <div class="cards3">{"".join(hood_card(k) for k in others)}{ph("More areas coming soon").replace('class="ph"','class="ph" style="border-radius:14px;aspect-ratio:3/4"')}</div></div></section>
-{VALUATION}
 {CTA}''')
 
 # ---------------- CONTACT ----------------
 page("contact.html", "Contact Nolan Herman | Nestlewood Realty", "contact.html", f'''
-<section class="page-hero" style="--bg:url('images/cover.jpg')"><div class="wrap"><div class="crumbs">Home / Contact</div><h1>Let's Talk</h1><p>Call, text, email, or book a time. I respond fast.</p></div></section>
+<section class="page-hero" style="--bg:url('images/cover.jpg')"><div class="wrap"><div class="crumbs">Home / Contact</div><h1>Let's Talk</h1><p>Call, text, or email. I respond fast.</p></div></section>
 <section class="section"><div class="wrap split" style="align-items:start">
   <div class="rev"><p class="eyebrow">Reach Me</p><h2>I'm here to help.</h2>
     <div class="hero-actions" style="flex-direction:column;align-items:stretch;max-width:380px">
@@ -326,5 +269,5 @@ page("contact.html", "Contact Nolan Herman | Nestlewood Realty", "contact.html",
     <label>Message<textarea name="message" rows="4"></textarea></label>
     <button class="btn" type="submit">Send Message</button>
   </form></div></section>
-{BOOKING}''')
+''')
 print("built")
