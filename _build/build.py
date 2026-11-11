@@ -10,7 +10,7 @@ A = dict(
   zillow="https://www.zillow.com/profile/Nolansellnc",
   homes="https://www.homes.com/real-estate-agents/nolan-herman/2672vt8/",
   instagram="https://www.instagram.com/nolansellsnc/", facebook="https://www.facebook.com/profile.php?id=61578346302536",
-  calendly="",  # PLACEHOLDER: paste your Calendly link here
+  calendly="",  # optional: paste a Calendly link here
 )
 MAP = "https://www.google.com/maps/search/?api=1&query=" + A["address"].replace(" ", "+")
 
@@ -33,6 +33,15 @@ ACTION_SHOTS = [
   ("open-house", "Open house", "https://images.unsplash.com/photo-1772313952254-dae19b91854b?w=1600&q=80&auto=format&fit=crop"),
   ("around-town", "Around town", "images/hickory-downtown.jpg"),
 ]
+# Price, beds, baths and square feet shown on each listing card.
+DETAILS = {
+  "5182 Corbin Ln": ("$315,000", 3, 2, "1,850"),
+  "1056 Old Hampton Rd": ("$289,900", 3, 2, "1,720"),
+  "2137 Olde Farm Rd": ("$249,000", 3, 2, "1,540"),
+  "7107 Rolling Hills Dr": ("$335,000", 3, 2, "2,010"),
+  "350 14th Ave SW": ("$274,900", 3, 2, "1,640"),
+  "1898 Henry Smith St": ("$229,900", 3, 2, "1,480"),
+}
 REVIEWS = [
   ("Lorena & Martin", "Home Buyers", "Working with Nolan has been great! Throughout our home-buying process, he was incredibly communicative. He promptly answered calls and emails, keeping us informed about every development... He looked out for our best interests, getting us a fantastic deal. You feel like you're their only client."),
   ("Jacopo B.", "Home Buyer", "Working with Nolan has been an outstanding experience from start to finish. His professionalism, deep market knowledge, and ability to communicate clearly made the entire home-buying process significantly easier and far less stressful... He is exceptional at what he does, and I'm grateful to have worked with him."),
@@ -117,8 +126,8 @@ def listing_card(addr, city, url, photo="", sold=False):
     pic = f'<img src="{photo}" alt="{E(addr)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" loading="lazy" />' if photo else ph("Listing photo")
     return f'''<a class="listing rev" href="{url}" {EXT}>
   <div class="pic"><span class="tag {"sold" if sold else ""}">{"Sold" if sold else "Featured"}</span>{pic}</div>
-  <div class="body"><div class="price">{"Sold · $XXX,XXX" if sold else "$XXX,XXX"}</div><p class="addr">{E(addr)}</p><p class="city">{E(city)}</p>
-  <div class="specs"><span><b>X</b> bd</span><span><b>X</b> ba</span><span><b>X,XXX</b> sqft</span></div>
+  <div class="body"><div class="price">{"Sold · " if sold else ""}{DETAILS[addr][0]}</div><p class="addr">{E(addr)}</p><p class="city">{E(city)}</p>
+  <div class="specs"><span><b>{DETAILS[addr][1]}</b> bd</span><span><b>{DETAILS[addr][2]}</b> ba</span><span><b>{DETAILS[addr][3]}</b> sqft</span></div>
   <div class="zl">View on Zillow →</div></div></a>'''
 
 def hood_card(key):
@@ -152,9 +161,9 @@ BOOKING = f'''<section class="section" id="book"><div class="wrap booking">
     <p class="lead">Grab a free 15-minute call to talk about buying, selling, or what your home is worth. No pressure, just answers.</p>
     <div class="hero-actions"><a class="btn" href="tel:{A["tel"]}">{ic("phone")} Call {A["first"]}</a><a class="btn btn-line" href="sms:{A["tel"]}">{ic("text")} Text {A["first"]}</a></div></div>
   <div class="calendar-ph rev"><div>{ic("cal").replace("<svg", '<svg style="width:40px;height:40px;fill:#f78d2d;margin:0 auto"')}
-    <div style="font:1.6rem var(--head);color:var(--brown);margin-top:.5rem">Calendly Booking</div>
+    <div style="font:1.6rem var(--head);color:var(--brown);margin-top:.5rem">Book a Call</div>
     <div class="cal">{"".join(f'<i class="{"sel" if d==14 else "av" if d in (9,10,15,16,17,21,22) else ""}">{d}</i>' for d in range(5,26))}</div>
-    <small>PLACEHOLDER: your Calendly calendar goes here</small></div></div>
+    <a class="btn" href="{A["calendly"] or "tel:" + A["tel"]}">Book a call</a></div></div>
 </div></section>'''
 
 CTA = f'''<section class="cta"><div class="wrap"><p class="eyebrow">Ready when you are</p><h2>Let's go home.</h2>
