@@ -25,9 +25,13 @@ SOLD = [
   ("1898 Henry Smith St", "Hickory, NC 28601", "https://www.zillow.com/homedetails/1898-Henry-Smith-St-Hickory-NC-28601/227261430_zpid/", ""),
 ]
 # Action shots on the About page. To add your photo, upload it to images/action/ with the same file name.
+# Until your own photo is uploaded, a stock photo shows instead.
 ACTION_SHOTS = [
-  ("closing", "Nolan at a closing"), ("showing", "Nolan showing a home"), ("clients", "Nolan with clients"),
-  ("open-house", "Nolan at an open house"), ("around-town", "Nolan around town"),
+  ("closing", "Handing over the keys", "https://images.unsplash.com/photo-1741156386380-0236c72eb6f9?w=1600&q=80&auto=format&fit=crop"),
+  ("showing", "Showing a home", "https://images.unsplash.com/photo-1793586938427-e8e37441c962?w=1600&q=80&auto=format&fit=crop"),
+  ("clients", "Working with clients", "https://images.unsplash.com/photo-1781229771042-2a859f8f8022?w=1600&q=80&auto=format&fit=crop"),
+  ("open-house", "Open house", "https://images.unsplash.com/photo-1772313952254-dae19b91854b?w=1600&q=80&auto=format&fit=crop"),
+  ("around-town", "Around town", "images/hickory-downtown.jpg"),
 ]
 REVIEWS = [
   ("Lorena & Martin", "Home Buyers", "Working with Nolan has been great! Throughout our home-buying process, he was incredibly communicative. He promptly answered calls and emails, keeping us informed about every development... He looked out for our best interests, getting us a fantastic deal. You feel like you're their only client."),
@@ -214,7 +218,7 @@ page("about.html", "About Nolan Herman | Nestlewood Realty", "about.html", f'''
     <div class="tl rev"><i>4</i><h3>Licensed REALTOR®</h3><p>2 years in, $10M+ sold and 100% of my listings sold.</p></div>
   </div></div></section>
 <section class="section"><div class="wrap"><div class="head-row"><div><p class="eyebrow">Behind the Scenes</p><h2>On the job</h2></div></div>
-  <div class="gallery">{"".join(f'<div class="shot"><img src="images/action/{f}.jpg" alt="{E(t)}" loading="lazy" /></div>' for f, t in ACTION_SHOTS)}</div></div></section>
+  <div class="gallery">{"".join(f'<div class="shot" style="background-image:url(\'images/action/{f}.jpg\'),url(\'{u}\')" role="img" aria-label="{E(t)}"></div>' for f, t, u in ACTION_SHOTS)}</div></div></section>
 {STATS}
 {REVIEW_SLIDER}
 {CTA}''')
