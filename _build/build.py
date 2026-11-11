@@ -155,7 +155,7 @@ CTA = f'''<section class="cta"><div class="wrap"><p class="eyebrow">Ready when y
 
 STATS = '''<section class="stats"><div class="wrap stats-grid">
   <div class="stat"><strong>$10M+</strong><span>Total sales volume</span></div>
-  <div class="stat"><strong>$7M+</strong><span>Sold in 2026</span></div>
+  <div class="stat"><strong>$8M+</strong><span>Sold in 2026</span></div>
   <div class="stat"><strong>100%</strong><span>Of my listings sold</span></div>
   <div class="stat"><strong>2 Years</strong><span>In real estate</span></div>
   <div class="stat"><strong>600+</strong><span>Families helped by Nestlewood</span></div>
@@ -198,7 +198,7 @@ page("about.html", "About Nolan Herman | Nestlewood Realty", "about.html", f'''
   <div class="rev"><p class="eyebrow">My Story</p><h2>I didn't wait for an invitation.</h2>
     <p class="lead">Real estate runs in my family. My grandpa was a real estate investor, and growing up I got a front-row seat to how property can change a family's future.</p>
     <p>Right out of high school, I started emailing local brokers and asking for a chance to learn. Most didn't answer. One did, and that email turned into an internship. That internship turned into a career.</p>
-    <p>Two years later, I'm a licensed REALTOR® with Nestlewood Realty. I've helped clients buy and sell over $10 million in homes, including more than $7 million in 2026 alone, and every one of my listings has sold. I bring that same hustle to every client: fast answers, honest advice, and marketing that gets results.</p>
+    <p>Two years later, I'm a licensed REALTOR® with Nestlewood Realty. I've helped clients buy and sell over $10 million in homes, including more than $8 million in 2026 alone, and every one of my listings has sold. I bring that same hustle to every client: fast answers, honest advice, and marketing that gets results.</p>
     <div class="hero-actions"><a class="btn" href="contact.html">Work With Me</a><a class="btn btn-line" href="{A["zillow"]}" {EXT}>{ic("zillow")} Zillow Profile</a><a class="btn btn-line" href="{A["homes"]}" {EXT}>{ic("house")} Homes.com</a></div></div>
 </div></section>
 <section class="section soft"><div class="wrap center"><p class="eyebrow">How I Got Here</p><h2>From emails to $10M+</h2>
@@ -241,7 +241,7 @@ page("buy.html", "Buy a Home | Nolan Herman, REALTOR®", "buy.html", f'''
 page("sell.html", "Sell Your Home | Nolan Herman, REALTOR®", "sell.html", f'''
 <section class="page-hero" style="--bg:url('images/cover.jpg')"><div class="wrap"><div class="crumbs">Home / Sell</div><h1>Sell Your Home</h1><p>Smart pricing, professional photos, and social media marketing that puts your home in front of the right buyers.</p></div></section>
 <section class="stats"><div class="wrap stats-grid">
-  <div class="stat"><strong>100%</strong><span>Of my listings sold</span></div><div class="stat"><strong>$10M+</strong><span>Total sales volume</span></div><div class="stat"><strong>$7M+</strong><span>Sold in 2026</span></div><div class="stat"><strong>XX</strong><span>Avg. days on market*</span></div><div class="stat"><strong>XX%</strong><span>Of asking price*</span></div>
+  <div class="stat"><strong>100%</strong><span>Of my listings sold</span></div><div class="stat"><strong>$10M+</strong><span>Total sales volume</span></div><div class="stat"><strong>$8M+</strong><span>Sold in 2026</span></div><div class="stat"><strong>XX</strong><span>Avg. days on market*</span></div><div class="stat"><strong>XX%</strong><span>Of asking price*</span></div>
 </div></section>
 <section class="section"><div class="wrap center"><p class="eyebrow">My Selling Plan</p><h2>How I get your home sold</h2>
   <div class="steps" style="text-align:left;margin-top:2rem">
