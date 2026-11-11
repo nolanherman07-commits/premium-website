@@ -24,6 +24,11 @@ SOLD = [
   ("350 14th Ave SW", "Hickory, NC 28602", "https://www.zillow.com/homedetails/350-14th-Ave-SW-Hickory-NC-28602/464120420_zpid/", "images/listings/350-14th-ave-sw.jpg"),
   ("1898 Henry Smith St", "Hickory, NC 28601", "https://www.zillow.com/homedetails/1898-Henry-Smith-St-Hickory-NC-28601/227261430_zpid/", ""),
 ]
+# Action shots on the About page. To add your photo, upload it to images/action/ with the same file name.
+ACTION_SHOTS = [
+  ("closing", "Nolan at a closing"), ("showing", "Nolan showing a home"), ("clients", "Nolan with clients"),
+  ("open-house", "Nolan at an open house"), ("around-town", "Nolan around town"),
+]
 REVIEWS = [
   ("Lorena & Martin", "Home Buyers", "Working with Nolan has been great! Throughout our home-buying process, he was incredibly communicative. He promptly answered calls and emails, keeping us informed about every development... He looked out for our best interests, getting us a fantastic deal. You feel like you're their only client."),
   ("Jacopo B.", "Home Buyer", "Working with Nolan has been an outstanding experience from start to finish. His professionalism, deep market knowledge, and ability to communicate clearly made the entire home-buying process significantly easier and far less stressful... He is exceptional at what he does, and I'm grateful to have worked with him."),
@@ -183,8 +188,8 @@ page("index.html", "Nolan Herman, REALTOR® | Nestlewood Realty | Hickory, NC", 
     <a class="btn btn-dark" href="about.html">My Story</a></div>
 </div></section>
 <section class="section soft"><div class="wrap">
-  <div class="head-row"><div><p class="eyebrow">Featured Listings</p><h2>Homes I'm proud to represent</h2></div><a class="link" href="{A["zillow"]}" {EXT}>More on Zillow →</a></div>
-  <div class="cards3">{"".join(listing_card(*l) for l in FEATURED)}</div>
+  <div class="head-row"><div><p class="eyebrow">Featured &amp; Recently Sold</p><h2>Homes I'm proud to represent</h2></div><a class="link" href="{A["zillow"]}" {EXT}>More on Zillow →</a></div>
+  <div class="cards5">{"".join(listing_card(*l) for l in FEATURED)}{"".join(listing_card(*l, sold=True) for l in SOLD[:2])}</div>
 </div></section>
 {REVIEW_SLIDER}
 {VALUATION}
@@ -209,7 +214,7 @@ page("about.html", "About Nolan Herman | Nestlewood Realty", "about.html", f'''
     <div class="tl rev"><i>4</i><h3>Licensed REALTOR®</h3><p>2 years in, $10M+ sold and 100% of my listings sold.</p></div>
   </div></div></section>
 <section class="section"><div class="wrap"><div class="head-row"><div><p class="eyebrow">Behind the Scenes</p><h2>On the job</h2></div></div>
-  <div class="gallery">{ph("Action shot: you at a closing")}{ph("Action shot: showing a home")}{ph("Action shot: with clients")}{ph("Action shot: open house")}{ph("Action shot: around Hickory")}</div></div></section>
+  <div class="gallery">{"".join(f'<div class="shot"><img src="images/action/{f}.jpg" alt="{E(t)}" loading="lazy" /></div>' for f, t in ACTION_SHOTS)}</div></div></section>
 {STATS}
 {REVIEW_SLIDER}
 {CTA}''')
