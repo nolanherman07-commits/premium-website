@@ -14,7 +14,7 @@ Pages: Home (`index.html`), About, Buy, Sell, Listings, Areas (Hickory, Newton, 
 ## Still placeholders
 - Listing prices, beds/baths/sq ft, and photos
 - Area photos (striped boxes)
-- Action shots on the About page: upload your photos to `images/action/` using the same file names (closing, showing, clients, open-house, around-town)
+- Action shots on the About page: a stock photo shows until you upload your own to `images/action/` (create the folder) using the file names (closing, showing, clients, open-house, around-town)
 - Calendly booking calendar (paste the link into `calendly` in `_build/build.py`)
 - Market numbers on area pages and the Sell page stats marked with *
 
