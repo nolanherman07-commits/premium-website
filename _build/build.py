@@ -177,8 +177,8 @@ page("index.html", "Nolan Herman, REALTOR® | Nestlewood Realty | Hickory, NC", 
 <section class="section"><div class="wrap split">
   <div class="portrait rev"><img src="images/headshot.jpg" alt="Nolan Herman" />
     <div class="badge-float"><img src="images/tree-icon.png" alt="" /><div><strong>$10M+</strong><span>Sold in 2 years</span></div></div></div>
-  <div class="rev"><p class="eyebrow">Meet Nolan</p><h2>Real estate runs in my family.</h2>
-    <p class="lead">My grandpa was a real estate investor, and I grew up around his deals. Out of high school I emailed brokers until one gave me an internship. Two years later, I've helped clients buy and sell over $10 million in homes.</p>
+  <div class="rev"><p class="eyebrow">Meet Nolan</p><h2>I carved my own path into real estate.</h2>
+    <p class="lead">After realizing the traditional school path wasn't for me, I decided to carve out my own path in real estate, even though no one in my family had experience in the industry. My passion comes from my own experience with how stressful moving can be, and I want to make that process easier, smoother, and more enjoyable for others.</p>
     <ul class="checks"><li>Fast answers by call, text, or email</li><li>Local know-how across the Catawba Valley</li><li>Social media marketing that gets your home seen</li></ul>
     <a class="btn btn-dark" href="about.html">My Story</a></div>
 </div></section>
@@ -196,14 +196,14 @@ page("about.html", "About Nolan Herman | Nestlewood Realty", "about.html", f'''
 <section class="section"><div class="wrap split">
   <div class="portrait rev"><img src="images/headshot.jpg" alt="Nolan Herman" /></div>
   <div class="rev"><p class="eyebrow">My Story</p><h2>I didn't wait for an invitation.</h2>
-    <p class="lead">Real estate runs in my family. My grandpa was a real estate investor, and growing up I got a front-row seat to how property can change a family's future.</p>
-    <p>Right out of high school, I started emailing local brokers and asking for a chance to learn. Most didn't answer. One did, and that email turned into an internship. That internship turned into a career.</p>
+    <p class="lead">Real estate wasn't a family business, and I didn't have a traditional path into the industry. School wasn't for me, and after experiencing firsthand how stressful moving can be, I knew I wanted to build a career where I could make that experience easier for others.</p>
+    <p>I took a chance on myself, reached out for an opportunity, and turned that first yes into a career built on hard work, determination, and helping people find a place to call home.</p>
     <p>Two years later, I'm a licensed REALTOR® with Nestlewood Realty. I've helped clients buy and sell over $10 million in homes, including more than $8 million in 2026 alone, and every one of my listings has sold. I bring that same hustle to every client: fast answers, honest advice, and marketing that gets results.</p>
     <div class="hero-actions"><a class="btn" href="contact.html">Work With Me</a><a class="btn btn-line" href="{A["zillow"]}" {EXT}>{ic("zillow")} Zillow Profile</a><a class="btn btn-line" href="{A["homes"]}" {EXT}>{ic("house")} Homes.com</a></div></div>
 </div></section>
 <section class="section soft"><div class="wrap center"><p class="eyebrow">How I Got Here</p><h2>From emails to $10M+</h2>
   <div class="timeline">
-    <div class="tl rev"><i>1</i><h3>Growing Up</h3><p>Learned the business watching my grandpa invest in real estate.</p></div>
+    <div class="tl rev"><i>1</i><h3>Growing Up</h3><p>Saw firsthand how stressful moving can be for a family.</p></div>
     <div class="tl rev"><i>2</i><h3>The Emails</h3><p>Out of high school, I emailed brokers asking for a shot.</p></div>
     <div class="tl rev"><i>3</i><h3>The Internship</h3><p>One broker said yes. I learned every part of the business.</p></div>
     <div class="tl rev"><i>4</i><h3>Licensed REALTOR®</h3><p>2 years in, $10M+ sold and 100% of my listings sold.</p></div>
